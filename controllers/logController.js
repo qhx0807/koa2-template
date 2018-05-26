@@ -7,7 +7,8 @@ class LogController {
   }
 
   static async query (ctx) {
-
+    const result = await LogModel.findAndCountAll()
+    return ctx.success({data: result})
   }
 }
 
