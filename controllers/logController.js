@@ -7,7 +7,8 @@ class LogController {
   }
 
   static async query (ctx) {
-    const result = await LogModel.findAndCountAll()
+    const page = ctx.query.page || 1
+    const result = await LogModel.findAndCountAll({ order: [['id', 'DESC']], offset: 10 * (page - 1), limit: 10 })
     return ctx.success({data: result})
   }
 }
