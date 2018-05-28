@@ -18,12 +18,15 @@
     "koa-logger": "^2.0.1",
     "koa-onerror": "^1.2.1",
     "koa-router": "^7.1.1",
+    "koa-socket": "^4.4.0",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
+    "koa2-cors": "^2.0.5",
     "mysql2": "^1.5.3",
     "object-assign": "^4.1.1",
     "pug": "^2.0.0-rc.1",
     "sequelize": "^4.37.8",
+    "socket.io": "^2.1.1",
     "superagent": "^3.8.3"
   },
   "devDependencies": {
