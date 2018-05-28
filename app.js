@@ -1,4 +1,3 @@
-// import Koa from 'koa'
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -63,6 +62,11 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 })
 
+const server = require('http').Server(app.callback())
+const io = require('socket.io')(server)
 
+io.sockets.on('connection', (socket) => {
+  console.log('connection')
+})
 
 module.exports = app

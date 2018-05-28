@@ -16,5 +16,11 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+router.get('/socket.io', async (ctx, next) => {
+  ctx.body = {
+    title: 'socket'
+  }
+})
+
 
 module.exports = router
