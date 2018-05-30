@@ -6,22 +6,14 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const koaBody = require('koa-body')
-// const IO = require('koa-socket')
+const IO = require('koa-socket-2')
 
 const index = require('./routes/index')
 const api = require('./routes/api')
 
+const io = new IO()
 
-
-// const io = new IO({
-//   ioOptions: {
-//     pingTimeout: 10000,
-//     pingInterval: 5000
-//   },
-//   origins:'*'
-// })
-
-// io.attach(app)
+io.attach(app)
 
 // error handler
 onerror(app)
@@ -34,16 +26,6 @@ app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 app.use(require('koa-static')(__dirname + '/upload'))
-
-// app.use(async function(ctx, next) {
-//   ctx.set("Access-Control-Allow-Origin", "*")
-//   ctx.set("Access-Control-Allow-Credentials", true)
-//   ctx.set("Access-Control-Max-Age", 86400)
-//   ctx.set("Access-Control-Allow-Methods", "OPTIONS, GET, PUT, POST, DELETE")
-//   ctx.set("Access-Control-Allow-Headers", "x-requested-with, content-type")
-//   ctx.set("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With")
-//   await next()
-// })
 
 // koa-body
 app.use(koaBody({
@@ -79,11 +61,15 @@ app.use(require('./middlewares/log'))
 app.use(index.routes(), index.allowedMethods())
 app.use(api.routes(), api.allowedMethods())
 
-const server = require('http').Server(app.callback())
-const io = require('socket.io')(server)
+// const server = require('http').Server(app.callback())
+// const io = require('socket.io')(server)
 
-io.on('connect', (socket) => {
-  console.log(`<<<< connection`)
+app._io.on('connection', (socket) => {
+  console.log(`<<<< connection >>>>`)
+})
+
+app.io.on('message', (ctx, data) => {
+  console.log('client sent data to message endpoint', data)
 })
 
 // error-handling
