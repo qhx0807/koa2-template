@@ -1,9 +1,14 @@
 const router = require('koa-router')()
+const fs = require('fs')
+// router.get('/', async (ctx, next) => {
+//   await ctx.render('index', {
+//     title: 'Hello Koa 2!'
+//   })
+// })
 
-router.get('/', async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'Hello Koa 2!'
-  })
+router.get('/',(ctx, next) => {
+  ctx.type = 'html'
+  ctx.body = fs.createReadStream('./index.html')
 })
 
 router.get('/string', async (ctx, next) => {

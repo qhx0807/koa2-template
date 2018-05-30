@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+	<h1 id="code">test</h1>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script> -->
+<script src="http://lib.baomitu.com/socket.io/2.0.3/socket.io.slim.js"></script>
+<script type="text/javascript">
+	var socket = io.connect('http://localhost:3000', {path: '/'})
+	socket.on('connect', function(socket){
+		console.log("connection")
+  })
+	// $.ajax({
+	// 	url: 'http://localhost:3000/api/log',
+	// 	method: 'get',
+	// 	success: function (res) {
+	// 		console.log(res)
+	// 	},
+	// 	error: function (err) {
+
+	// 	}
+	// })
+</script>
+</body>
+</html>
