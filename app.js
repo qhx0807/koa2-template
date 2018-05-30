@@ -61,15 +61,28 @@ app.use(require('./middlewares/log'))
 app.use(index.routes(), index.allowedMethods())
 app.use(api.routes(), api.allowedMethods())
 
-// const server = require('http').Server(app.callback())
-// const io = require('socket.io')(server)
-
 app._io.on('connection', (socket) => {
   console.log(`<<<< connection >>>>`)
 })
 
 app.io.on('message', (ctx, data) => {
-  console.log('client sent data to message endpoint', data)
+  console.log(ctx.data)
+})
+
+
+/**
+ * socket.io Middleware
+ * ctx = {
+ *  event: listener.event,
+ *  data: data,
+ *  socket: Socket,
+ *  acknowledge: cb
+ * }
+ */
+io.use( async ( ctx, next ) => {
+  let start = new Date();
+  await next();
+  console.log( `response time: ${ new Date() - start }ms` );
 })
 
 // error-handling
