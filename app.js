@@ -62,28 +62,14 @@ app.use(index.routes(), index.allowedMethods())
 app.use(api.routes(), api.allowedMethods())
 
 app._io.on('connection', (socket) => {
-  console.log(`<<<< connection >>>>`)
+  console.log(`<<<< socket connection >>>>`)
 })
 
 app.io.on('message', (ctx, data) => {
   console.log(ctx.data)
 })
 
-
-/**
- * socket.io Middleware
- * ctx = {
- *  event: listener.event,
- *  data: data,
- *  socket: Socket,
- *  acknowledge: cb
- * }
- */
-io.use( async ( ctx, next ) => {
-  let start = new Date();
-  await next();
-  console.log( `response time: ${ new Date() - start }ms` );
-})
+io.use(require('./middlewares/socket'))
 
 // error-handling
 app.on('error', (err, ctx) => {
