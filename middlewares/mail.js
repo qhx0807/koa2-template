@@ -6,8 +6,8 @@ let transporter = nodemailer.createTransport({
   port: 465,
   secureConnection: true,
   auth: {
-    user: mailConfig.userqq,
-    pass: mailConfig.authcodeqq
+    user: mailConfig.user,
+    pass: mailConfig.authcode
   }
 })
 
@@ -28,8 +28,8 @@ transporter.verify(function (error, success) {
  */
 module.exports = async (to, subject, content) => {
   let message = {
-    from: mailConfig.userqq,
-    to: to || 'ioservice@163.com',
+    from: mailConfig.user,
+    to: to || '820240134@qq.com',
     subject: subject,
     html: content
   }
