@@ -1,8 +1,8 @@
 # koa2-template
 
-> make koa2 backstage project faster & easy start !
+### 目录结构
 
-```javascript
+```
 |-- koa2-demo
     |-- .editorconfig
     |-- .gitignore
@@ -13,23 +13,22 @@
     |-- README.md
     |-- bin
     |   |-- www
-    |-- config
-    |   |-- db.js
-    |   |-- mail.js
-    |   |-- wechat.js
+    |-- config // 配置文件
+    |   |-- db.js // 数据库配置
+    |   |-- mail.js // 邮箱和授权码
+    |   |-- wechat.js  // 微信配置
     |-- controllers
-    |   |-- apiController.js
-    |   |-- logController.js
-    |   |-- mailController.js
-    |   |-- uploadCtrl.js
-    |   |-- wechatCtrl.js
+    |   |-- apiController.js // api
+    |   |-- logController.js // 日志
+    |   |-- uploadCtrl.js // 上传文件
+    |   |-- wechatCtrl.js // 微信相关
     |-- middlewares
-    |   |-- log.js
-    |   |-- mail.js
-    |   |-- response.js
-    |   |-- socket.js
+    |   |-- log.js  //日志
+    |   |-- mail.js // 发送邮件
+    |   |-- response.js // 响应
+    |   |-- socket.js // socket中间件
     |-- model
-    |   |-- db.js
+    |   |-- db.js // 数据库连接
     |   |-- logModel.js
     |   |-- userModel.js
     |-- public
@@ -40,9 +39,11 @@
     |-- routes
     |   |-- api.js
     |   |-- index.js
-    |-- upload
+    |-- upload // 上传文件到这个文件夹
     |-- views
         |-- error.pug
         |-- index.pug
         |-- layout.pug
 ```
+
+> make koa2 backstage project faster & easy start !
