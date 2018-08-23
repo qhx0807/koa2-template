@@ -8,6 +8,7 @@ const LogModel = defineModel('log', {
   host: Sequelize.STRING,
   status: Sequelize.INTEGER,
   desc: Sequelize.STRING,
+  body: Sequelize.STRING
 })
 
 module.exports = LogModel

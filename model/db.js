@@ -29,10 +29,10 @@ const defineModel = (name, attributes) => {
     }
   }
 
-  attrs.id = {
-    type: ID_TYPE,
-    primaryKey: true
-  }
+  // attrs.id = {
+  //   type: ID_TYPE,
+  //   primaryKey: true
+  // }
   // attrs.createdAt = {
   //   type: Sequelize.BIGINT,
   //   allowNull: false
@@ -50,9 +50,9 @@ const defineModel = (name, attributes) => {
     //   beforeValidate: function (obj) {
     //     let now = Date.now()
     //     if (obj.isNewRecord) {
-    //       if (!obj.id) {
-    //           obj.id = generateId()
-    //       }
+    //       // if (!obj.id) {
+    //       //   obj.id = generateId()
+    //       // }
     //       obj.createdAt = now
     //       obj.updatedAt = now
     //       obj.version = 0

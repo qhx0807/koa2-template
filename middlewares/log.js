@@ -6,6 +6,7 @@ module.exports = async (ctx, next) => {
     method: ctx.request.method,
     host: ctx.request.header.host,
     url: ctx.request.url,
+    body: ctx.request.body,
     status: null,
     desc: null
   }
