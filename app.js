@@ -9,7 +9,6 @@ const koaBody = require('koa-body')
 const IO = require('koa-socket-2')
 
 const routes = require('./routes/index')
-const api = require('./routes/api')
 const io = new IO()
 
 io.attach(app)
@@ -57,9 +56,7 @@ app.use(require('./middlewares/response'))
 app.use(require('./middlewares/log'))
 
 // routes
-// app.use(routes)
-app.use(api.routes())
-app.use(api.allowedMethods())
+app.use(routes())
 
 app._io.on('connection', (socket) => {
   console.log(`<<<< socket connection >>>>`)
