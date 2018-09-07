@@ -52,7 +52,6 @@ class UploadController {
     } catch (error) {
       ctx.error({Data: error})
     }
-
   }
 
 }
