@@ -15,5 +15,6 @@ router
   .get('/wechat/:code', WeChatController.auth)
   .post('/upload', UploadController.upload)
   .get('/log', LogController.query)
+  .post('/uploadqn', UploadController.uploadQiniu)
 
 module.exports = router

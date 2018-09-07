@@ -8,7 +8,7 @@ const logger = require('koa-logger')
 const koaBody = require('koa-body')
 const IO = require('koa-socket-2')
 
-const routes = require('./routes/index')
+const registerRouter = require('./routes/index')
 const io = new IO()
 
 io.attach(app)
@@ -56,7 +56,7 @@ app.use(require('./middlewares/response'))
 app.use(require('./middlewares/log'))
 
 // routes
-app.use(routes())
+app.use(registerRouter())
 
 app._io.on('connection', (socket) => {
   console.log(`<<<< socket connection >>>>`)

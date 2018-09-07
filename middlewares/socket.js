@@ -10,6 +10,7 @@
  */
 
 module.exports = async (ctx, next) => {
+  console.log(ctx)
   let start = new Date()
   await next()
   console.log(`response time: ${ new Date() - start }ms`)
