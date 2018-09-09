@@ -10,14 +10,15 @@ class HouseController {
     return ctx.success({ data: result })
   }
 
-  static async create (ctx) {
-    let data = ctx.request.body.fields
+  static async createhouse (ctx) {
+    let data = ctx.request.body
     try {
       let user = await HouseCheckModal.create(data)
       let result = user.get({ 'plain': true })
       return ctx.success({ data: {id: result.id} })
     } catch (error) {
-      return ctx.error({msg: error.original.sqlMessage || error})
+      console.log(error);
+      return ctx.error({msg: error.SequelizeValidationError || error.toString()})
     }
   }
 
@@ -48,5 +49,6 @@ class HouseController {
     }
   }
 }
+
 
 module.exports = HouseController

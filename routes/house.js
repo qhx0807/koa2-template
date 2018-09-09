@@ -6,7 +6,7 @@ router.prefix('/api')
 
 router
   .get('/housecheck', HouseController.query)
-  .post('/housecheck/new', HouseController.create)
+  .post('/housecheck/new', HouseController.createhouse)
   .put('/housecheck/edit', HouseController.update)
   .delete('/housecheck/:id', HouseController.destroy)
 
