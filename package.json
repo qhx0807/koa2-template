@@ -27,7 +27,7 @@
     "mysql2": "^1.5.3",
     "nodemailer": "^4.6.5",
     "object-assign": "^4.1.1",
-    "pug": "^2.0.0-rc.1",
+    "pug": "^3.0.1",
     "qiniu": "^7.2.1",
     "sequelize": "^5.15.1",
     "socket.io": "^2.1.1",
